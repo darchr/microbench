@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/python
 
 import random
 import argparse
@@ -45,3 +45,4 @@ for i in range(0,args.len):
 
 out_file.write("};")
 
+out_file.close()
