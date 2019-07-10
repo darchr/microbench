@@ -1,14 +1,15 @@
 include ../make.config
 
-CC?=gcc
+CC_X86?=gcc
+CC_ARM?=arm-linux-gnueabi-gcc
+CC_RISCV?=~/opt/riscv/bin/riscv64-unknown-elf-gcc
 OPT?=-O3
-MAGIC?=-DMAGIC
 
 #-fno-tree-vectorize 
-CFLAGS+=${OPT} ${MAGIC} -I../
+CFLAGS+=${OPT} -I../
 
 
-all: bench
+all: benchX86 benchARM benchRISCV
 
 
 ifneq ("$(wildcard rand_arr_args.txt)","")
@@ -22,12 +23,16 @@ else
 pre_req:
 endif
 
-bench: bench.c pre_req
-	${CC} ${CFLAGS} bench.c --static --std=c99  -lm -o bench
+benchX86: bench.c pre_req
+	${CC_X86} ${CFLAGS} -DMAGIC bench.c --static --std=c99  -lm -o bench.X86
+
+benchARM: bench.c pre_req
+	${CC_ARM} ${CFLAGS} bench.c --static --std=c99 -lm -o bench.ARM
+
+benchRISCV: bench.c pre_req
+	${CC_RISCV} ${CFLAGS} bench.c --static --std=c99 -lm -o bench.RISCV
 
 clean:
-	rm -f bench
+	rm -f bench.X86 bench.ARM bench.RISCV
 
 .phony : clean all
-
-
