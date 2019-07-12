@@ -8,6 +8,15 @@ default: $(DIRS)
 all: PARENT = all
 all: $(DIRS)
 
+X86: PARENT = X86
+X86: $(DIRS)
+
+ARM: PARENT = ARM
+ARM: $(DIRS)
+
+RISCV: PARENT = RISCV
+RISCV: $(DIRS)
+
 $(DIRS):
 	$(MAKE) $(PARENT) -C $@
 
