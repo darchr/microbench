@@ -1,11 +1,15 @@
-DIRS = $(sort $(dir $(wildcard */)))
+DIRS = $(dir $(wildcard */))
 
-.PHONY: all $(DIRS)
+.PHONY: default all $(DIRS)
 
+default: PARENT = default
+default: $(DIRS) 
+
+all: PARENT = all
 all: $(DIRS)
 
 $(DIRS):
-	$(MAKE) -C $@
+	$(MAKE) $(PARENT) -C $@
 
 clean:
 	rm -f */bench.X86

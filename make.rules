@@ -8,6 +8,7 @@ OPT?=-O3
 #-fno-tree-vectorize 
 CFLAGS+=${OPT} -I../
 
+default: benchX86
 
 all: benchX86 benchARM benchRISCV
 
