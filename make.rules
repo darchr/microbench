@@ -12,14 +12,13 @@ default: benchX86
 
 all: benchX86 benchARM benchRISCV
 
-
 ifneq ("$(wildcard rand_arr_args.txt)","")
 args := $(shell cat rand_arr_args.txt)
 
 randArr.h: rand_arr_args.txt
 	${PY} ../rand_c_arr.py $(args)
 
-pre_req: randArr.h 
+pre_req: randArr.h
 else
 pre_req:
 endif
@@ -35,5 +34,3 @@ benchRISCV: bench.c pre_req
 
 clean:
 	rm -f bench.X86 bench.ARM bench.RISCV
-
-.phony : clean all
