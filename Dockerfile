@@ -1,11 +1,11 @@
 FROM ubuntu:18.04
 RUN apt-get update \
     # Install gcc for x86 and ARM
-    && apt-get install -y build-essential gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf git\
+    && apt-get install -y build-essential gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf git curl\
     # Prepare to download and compile RISCV toolchain
-    && export HOME_DIR=/home/root/ \
-    && export RISCV_SRC_DIR=$HOME_DIR/riscv-gnu-toolchain/ \
-    && export RISCV_DIR=$HOME_DIR/riscv-tools/ \
+    && export HOME_DIR=/home/root \
+    && export RISCV_SRC_DIR=$HOME_DIR/riscv-gnu-toolchain \
+    && export RISCV_DIR=$HOME_DIR/riscv-tools \
     && mkdir $HOME_DIR \
     && cd $HOME_DIR \
     && git clone --recursive https://github.com/riscv/riscv-gnu-toolchain -j 8\
