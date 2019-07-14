@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 RUN apt-get update \
     # Install gcc for x86 and ARM
     && apt-get install -y build-essential gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf git \
-    curl gawk texinfo expat libexpat1-dev bison flex libz-dev \
+    curl gawk texinfo expat libexpat1-dev bison flex libz-dev python \
     # Prepare to download and compile RISCV toolchain
     && export HOME_DIR=/home/root \
     && export RISCV_SRC_DIR=$HOME_DIR/riscv-gnu-toolchain \
@@ -22,8 +22,6 @@ RUN apt-get update \
     # Remove the source code
     && rm -rf $RISCV_SRC_DIR 
 
-# Modify to compile
 # For x86: gcc
 # For ARM: arm-linux-gnueabi-gcc or arm-linux-gnueabihf-gcc ?
 # For RISCV: $RISCV_DIR/bin/riscv64-unknown-elf-gcc
-CMD ls
