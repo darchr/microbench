@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "randArr.h"
+#include "CCh/randArr.h"
 #include "common.h"
 
 #define ASIZE     0
@@ -23,8 +23,8 @@ int loop(int zero) {
 
 int main(int argc, char* argv[]) {
    argc&=10000;
-   ROI_BEGIN(); 
-   int t=loop(argc); 
+   ROI_BEGIN();
+   int t=loop(argc);
    ROI_END();
    volatile int a = t;
 }
