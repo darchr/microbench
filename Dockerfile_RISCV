@@ -6,9 +6,9 @@ RUN apt-get install -y build-essential git curl gawk texinfo expat \
 ENV HOME_DIR=/home/root
 ENV RISCV_SRC_DIR=$HOME_DIR/riscv-gnu-toolchain
 ENV RISCV_DIR=$HOME_DIR/riscv-tools
-ENV mkdir -p $HOME_DIR
+RUN mkdir -p $HOME_DIR
 WORKDIR $HOME_DIR
-RUN git clone --recursive https://github.com/riscv/riscv-gnu-toolchain -j 8
+RUN git clone --recursive https://github.com/riscv/riscv-gnu-toolchain -j $(nproc)
 WORKDIR $RISCV_SRC_DIR
 # Checkout a specific hash to keep the output binaries consistent
 WORKDIR git checkout 23a038856764808d75b6afe96f649980609ae4c6 
@@ -17,7 +17,7 @@ WORKDIR $RISCV_SRC_DIR/riscv-gcc
 RUN ./contrib/download_prerequisites 
 WORKDIR $RISCV_SRC_DIR 
 RUN ./configure --prefix=$RISCV_DIR 
-RUN make -j 8 
+RUN make -j $(nproc)
 # Remove the source code
 RUN rm -rf $RISCV_SRC_DIR 
 
