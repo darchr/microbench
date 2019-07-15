@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "randArr.h"
+#include "CCe/randArr.h"
 #include "common.h"
 
 #define ASIZE 2048

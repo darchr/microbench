@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import random
 import argparse
@@ -20,29 +20,29 @@ if args.data_type=='not_set':
   else:
     args.data_type='int'
 
-out_file = open(args.output,'w')
-out_file.write(args.data_type + " " + args.name + "[] = {\n")
+#out_file = open(args.output,'w')
+print(args.data_type + " " + args.name + "[] = {\n", end='')
 
 for i in range(0,args.len):
   if args.non_random:
-    out_file.write(str(i%args.range))
+    print(str(i%args.range), end='')
   else:
-    out_file.write(str(random.randint(0,args.range-1)))
-  
+    print(str(random.randint(0,args.range-1)), end='')
+
   if i!=args.len-1:
-    out_file.write(",")
+    print(",", end='')
 
   if args.range<=9:
     if  i % 64 == 63:
-      out_file.write("\n")
+      print("\n", end='')
   elif args.range<=99:
     if  i % 32 == 31:
-      out_file.write("\n")
+      print("\n", end='')
   else :
     if i % 16 == 15:
-      out_file.write("\n")
+      print("\n", end='')
 
 
-out_file.write("};")
+print("};", end='')
 
-out_file.close()
+#out_file.close()
