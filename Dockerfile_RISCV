@@ -11,7 +11,7 @@ WORKDIR $HOME_DIR
 RUN git clone --recursive https://github.com/riscv/riscv-gnu-toolchain -j $(nproc)
 WORKDIR $RISCV_SRC_DIR
 # Checkout a specific hash to keep the output binaries consistent
-WORKDIR git checkout 23a038856764808d75b6afe96f649980609ae4c6 
+RUN git checkout 23a038856764808d75b6afe96f649980609ae4c6 
 # Downloading the prereqs must be done in riscv-gcc folder
 WORKDIR $RISCV_SRC_DIR/riscv-gcc 
 RUN ./contrib/download_prerequisites 
