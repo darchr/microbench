@@ -20,7 +20,3 @@ RUN ./configure --prefix=$RISCV_DIR
 RUN make -j $(nproc)
 # Remove the source code
 RUN rm -rf $RISCV_SRC_DIR 
-
-# For x86: gcc
-# For ARM: arm-linux-gnueabi-gcc or arm-linux-gnueabihf-gcc ?
-# For RISCV: $RISCV_DIR/bin/riscv64-unknown-elf-gcc
