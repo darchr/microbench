@@ -1,27 +1,18 @@
-DIRS = $(dir $(wildcard */))
+DIRS = $(sort $(dir $(wildcard */)))
 
-.PHONY: default all $(DIRS)
-
-default: PARENT = default
-default: $(DIRS) 
-
-all: PARENT = all
-all: $(DIRS)
-
-X86: PARENT = X86
-X86: $(DIRS)
-
-ARM: PARENT = ARM
-ARM: $(DIRS)
-
-RISCV: PARENT = RISCV
-RISCV: $(DIRS)
-
-$(DIRS):
-	$(MAKE) $(PARENT) -C $@
+all:
+	@for dir in $(DIRS); do \
+		if [ -d $$dir ]; then \
+			(cd $$dir && $(MAKE)) || exit 1 ; \
+		fi \
+	done
 
 clean:
-	rm -f */bench.X86
-	rm -f */bench.ARM
-	rm -f */bench.RISCV
-	rm -f */randArr.h 
+	@for dir in $(DIRS); do \
+		if [ -d $$dir ]; then \
+			(cd $$dir && $(MAKE) clean) || exit 1 ; \
+		fi \
+	done
+
+
+.phony: all clean

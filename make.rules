@@ -1,22 +1,18 @@
 include ../make.config
 
-CC_X86?=gcc
-CC_ARM?=arm-linux-gnueabi-gcc
-CC_RISCV?=~/opt/riscv/bin/riscv64-unknown-elf-gcc
-OPT?=-O3
+CC_X86=g++
 
-#-fno-tree-vectorize 
-CFLAGS+=${OPT} -I../
+OPT?=-O2
+
+#-fno-tree-vectorize
+CFLAGS+=${OPT} -fno-unroll-loops -fno-peel-loops -I ../
+
+PCM_DIR=../../pcm
+PCM+= -I ${PCM_DIR} -L ${PCM_DIR}/cpucounters.o ${PCM_DIR}/pci.o ${PCM_DIR}/msr.o ${PCM_DIR}/client_bw.o ${PCM_DIR}/cpucounters.o ${PCM_DIR}/mmio.o
 
 default: benchX86
 
-all: benchX86 benchARM benchRISCV
-
-X86: benchX86
-
-ARM: benchARM
-
-RISCV: benchRISCV
+all: benchX86
 
 ifneq ("$(wildcard rand_arr_args.txt)","")
 args := $(shell cat rand_arr_args.txt)
@@ -29,14 +25,8 @@ else
 pre_req:
 endif
 
-benchX86: bench.c pre_req
-	${CC_X86} ${CFLAGS} -DMAGIC bench.c --static --std=c99  -lm -o bench.X86
-
-benchARM: bench.c pre_req
-	${CC_ARM} ${CFLAGS} bench.c --static --std=c99 -lm -o bench.ARM
-
-benchRISCV: bench.c pre_req
-	${CC_RISCV} ${CFLAGS} bench.c --static --std=c99 -lm -o bench.RISCV
+benchX86: bench.cpp pre_req
+	${CC_X86} ${CFLAGS} -std=c++11 ${PCM} -lpthread bench.cpp -o bench.X86
 
 clean:
-	rm -f bench.X86 bench.ARM bench.RISCV
+	rm -f bench.X86
