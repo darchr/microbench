@@ -6,7 +6,7 @@
 #define ASIZE    32
 #define STEP    0
 #define AMASK (ASIZE-1)
-#define ITERS  4096
+#define ITERS  8192
 
 
 int arr1[ASIZE*AMULT];
@@ -45,18 +45,18 @@ int main(int argc, char* argv[]) {
   argc&=10000;
   benchmarkParams(ASIZE, STEP, ITERS);
   switch (*argv[1]) {
-    case '0': getGeneralStats(loop, argc);
-              break;
-    case '1': getBranchStats1(loop, argc);
-              getBranchStats2(loop, argc);
-              break;
-    case '2': getMemStats1(loop, argc);
-              getMemStats2(loop, argc);
-              getMemStats3(loop, argc);
-              getMemStats4(loop, argc);
-              break;
+    case '0': benchmarkParams(ASIZE, STEP, ITERS); break;
+    case '1': getGeneralStats(loop, argc);break;
+    case '2': getBranchStats1(loop, argc);break;
+    case '3': getBranchStats2(loop, argc);break;
+    case '4': getMemStats1(loop, argc);break;
+    case '5': getMemStats2(loop, argc);break;
+    case '6': getMemStats3(loop, argc);break;
+    case '7': getMemStats4(loop, argc);break;
     default: getGeneralStats(loop, argc);
   }
   return 0;
 }
+
+
 
