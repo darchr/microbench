@@ -3,7 +3,7 @@
 
 #define ASIZE 2048
 #define STEP   128
-#define ITERS   18
+#define ITERS   10
 
 __attribute__ ((noinline))
 int fib(int i ){
@@ -23,8 +23,8 @@ int loop(int zero) {
 
 int main(int argc, char* argv[]) {
    argc&=10000;
-   ROI_BEGIN(); 
-   int t=loop(argc); 
+   ROI_BEGIN();
+   int t=loop(argc);
    ROI_END();
    volatile int a = t;
 }

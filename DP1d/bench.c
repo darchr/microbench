@@ -3,7 +3,7 @@
 
 #define ASIZE  8096
 #define STEP    128
-#define ITERS     4
+#define ITERS     32
 
 double arrA[ASIZE];
 double arrB[ASIZE];

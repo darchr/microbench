@@ -3,7 +3,7 @@ DIRS = $(dir $(wildcard */))
 .PHONY: default all $(DIRS)
 
 default: PARENT = default
-default: $(DIRS) 
+default: $(DIRS)
 
 all: PARENT = all
 all: $(DIRS)

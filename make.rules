@@ -3,10 +3,10 @@ include ../make.config
 CC_X86?=gcc
 CC_ARM?=arm-linux-gnueabi-gcc
 CC_RISCV?=~/opt/riscv/bin/riscv64-unknown-elf-gcc
-OPT?=-O3
+OPT?=-O2
 
-#-fno-tree-vectorize 
-CFLAGS+=${OPT} -I../
+#-fno-tree-vectorize
+CFLAGS+=${OPT} -fno-unroll-loops -fno-peel-loops -I../
 
 default: benchX86
 
@@ -30,7 +30,7 @@ pre_req:
 endif
 
 benchX86: bench.c pre_req
-	${CC_X86} ${CFLAGS} -DMAGIC bench.c --static --std=c99  -lm -o bench.X86
+	${CC_X86} ${CFLAGS} -DMAGIC bench.c --static --std=c99 -lm -o bench.X86
 
 benchARM: bench.c pre_req
 	${CC_ARM} ${CFLAGS} bench.c --static --std=c99 -lm -o bench.ARM

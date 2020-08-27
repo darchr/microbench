@@ -2,8 +2,8 @@
 #include "randArr.h"
 #include "common.h"
 
-#define ASIZE 2048
-#define STEP   256
+#define ASIZE 16384
+#define STEP   16384
 #define ITERS   32
 
 int arr[ASIZE];

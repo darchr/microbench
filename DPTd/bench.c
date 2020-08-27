@@ -2,8 +2,8 @@
 #include "common.h"
 #include "math.h"
 
-#define ASIZE   128
-#define ITERS    16
+#define ASIZE   512
+#define ITERS   128
 
 double arrA[ASIZE];
 double arrB[ASIZE];

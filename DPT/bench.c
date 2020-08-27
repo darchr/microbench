@@ -2,14 +2,14 @@
 #include "common.h"
 #include "math.h"
 
-#define ASIZE  1024
-#define STEP    128
-#define ITERS     4
+#define ASIZE  512
+#define STEP   128
+#define ITERS  128
 
 float arrA[ASIZE];
 float arrB[ASIZE];
 
-__attribute__ ((noinline)) 
+__attribute__ ((noinline))
 float loop(int zero) {
   int i, iters;
   float t1;

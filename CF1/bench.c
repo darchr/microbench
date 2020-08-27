@@ -4,7 +4,7 @@
 
 #define ASIZE 2048
 #define STEP   128
-#define ITERS   48
+#define ITERS   64
 
 __attribute__ ((noinline))
 int loopy_helper(int i,int zero){

@@ -2,7 +2,7 @@
 #include "common.h"
 #define ASIZE 2048
 #define STEP   128
-#define ITERS   32
+#define ITERS  64
 
 int arr[ASIZE];
 

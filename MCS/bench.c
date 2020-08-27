@@ -2,7 +2,7 @@
 #include "common.h"
 
 #define ASIZE 8192
-#define STEP   128
+#define STEP   512
 
 
 float arr[ASIZE];
@@ -16,7 +16,7 @@ float arr7[ASIZE];
 float arr8[ASIZE];
 float arr9[ASIZE];
 
-__attribute__ ((noinline)) 
+__attribute__ ((noinline))
 float loop3(int zero) {
   float f = 0;
   for(int i = 0; i < ASIZE; i+=1) {
@@ -30,6 +30,7 @@ float loop3(int zero) {
     arr7[ind]=i;
     arr8[ind]=i;
     arr9[ind]=i;
+    // arr[ind]=i;
     //f=f*f*f*f*f*f*f*f*f*f*f;
   }
   return f;
@@ -41,7 +42,7 @@ int main(int argc, char* argv[]) {
    //loop1(argc);
    //loop2(argc);
 
-   ROI_BEGIN(); 
+   ROI_BEGIN();
    float f =loop3(argc);
    ROI_END();
    volatile float a = f;
