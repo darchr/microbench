@@ -2,9 +2,9 @@
 #include "monitor.hpp"
 #include "math.h"
 
-#define ASIZE  1024
-#define STEP    0
-#define ITERS  32
+#define ASIZE  512
+#define STEP   0
+#define ITERS  128
 
 float arrA[ASIZE];
 float arrB[ASIZE];

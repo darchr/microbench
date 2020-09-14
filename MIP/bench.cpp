@@ -3,7 +3,7 @@
 
 #define ASIZE 2048
 #define STEP   128
-#define ITERS   16
+#define ITERS   64
 
 template <typename type>
 __attribute__ ((noinline))

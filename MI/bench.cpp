@@ -3,7 +3,7 @@
 
 #define ASIZE 2048
 #define STEP   128
-#define ITERS   64
+#define ITERS  256
 
 int arr[ASIZE];
 
@@ -12,7 +12,7 @@ __attribute__ ((noinline))
 type loop(int zero) {
   int t = 0,i,iter;
   for(iter=0; iter < ITERS; ++iter) {
-    for(i=zero; i < 2048; i+=8) {
+    for(i=zero; i < ASIZE; i+=8) {
       t += arr[i+0];
       t += arr[i+1];
       t += arr[i+2];

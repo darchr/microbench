@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "monitor.hpp"
 
-#define ASIZE 8192
-#define STEP  512
+#define ASIZE 65536
+#define STEP  128
 #define ITERS 0
 
 float arr1[ASIZE];

@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>     /* malloc, free, rand */
 #include "cpucounters.h"
-#include "filewriting.h"
 #include "common.h"
 
 #define ASIZE 2048

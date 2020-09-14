@@ -7,7 +7,7 @@ OPT?=-O2
 #-fno-tree-vectorize
 CFLAGS+=${OPT} -fno-unroll-loops -fno-peel-loops -I ../
 
-PCM_DIR=../../pcm
+PCM_DIR=../../../pcm
 PCM+= -I ${PCM_DIR} -L ${PCM_DIR}/cpucounters.o ${PCM_DIR}/pci.o ${PCM_DIR}/msr.o ${PCM_DIR}/client_bw.o ${PCM_DIR}/cpucounters.o ${PCM_DIR}/mmio.o
 
 default: benchX86

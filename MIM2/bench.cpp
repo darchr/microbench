@@ -3,7 +3,7 @@
 
 #define ASIZE 65536
 #define STEP   128
-#define ITERS   64
+#define ITERS  256
 
 int arr[ASIZE];
 

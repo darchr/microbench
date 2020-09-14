@@ -6,7 +6,7 @@
 #define ASIZE    32
 #define STEP    0
 #define AMASK (ASIZE-1)
-#define ITERS  8192
+#define ITERS  65536
 
 
 int arr1[ASIZE*AMULT];

@@ -3,7 +3,6 @@
 #include "randArr.h"
 #include "common.h"
 #include "cpucounters.h"
-#include "filewriting.h"
 
 #define ASIZE 4096
 
@@ -111,8 +110,6 @@ int main(int argc, char* argv[]) {
 
   stat_1_name = "BRANCH_MISSES_TOTAL_events";
   stat_2_name = "BRANCH_TOTAL_INSTR_RETIRED_events";
-
-  Write_to_file(ipc,stat_1_name,BRANCH_MISSES_TOTAL_events,stat_2_name,BRANCH_TOTAL_INSTR_RETIRED_events);
 
   volatile int a = temp[argc];
 }
