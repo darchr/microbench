@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include "common.h"
 
-#define ASIZE 8192
-#define STEP   512
-
+#define ASIZE  8192
+#define STEP   128
 
 float arr[ASIZE];
 float arr1[ASIZE];
@@ -30,7 +29,6 @@ float loop3(int zero) {
     arr7[ind]=i;
     arr8[ind]=i;
     arr9[ind]=i;
-    // arr[ind]=i;
     //f=f*f*f*f*f*f*f*f*f*f*f;
   }
   return f;
@@ -46,4 +44,14 @@ int main(int argc, char* argv[]) {
    float f =loop3(argc);
    ROI_END();
    volatile float a = f;
+
+  //  printf("Address of arr1 = %p\n", arr1);
+  //  printf("Address of arr2 = %p\n", arr2);
+  //  printf("Address of arr3 = %p\n", arr3);
+  //  printf("Address of arr4 = %p\n", arr4);
+  //  printf("Address of arr5 = %p\n", arr5);
+  //  printf("Address of arr6 = %p\n", arr6);
+  //  printf("Address of arr7 = %p\n", arr7);
+  //  printf("Address of arr8 = %p\n", arr8);
+  //  printf("Address of arr9 = %p\n", arr9);
 }

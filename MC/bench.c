@@ -2,7 +2,7 @@
 #include "common.h"
 
 #define ASIZE 8192
-#define STEP  512
+#define STEP  128
 
 float arr[ASIZE];
 float arr1[ASIZE];
@@ -31,15 +31,15 @@ float loop3(int zero) {
     f+=arr9[ind];
     // f+=arr[ind];
   }
-  printf("&arr1 = %p\n", arr1);
-  printf("&arr2 = %p\n", arr2);
-  printf("&arr3 = %p\n", arr3);
-  printf("&arr4 = %p\n", arr4);
-  printf("&arr5 = %p\n", arr5);
-  printf("&arr6 = %p\n", arr6);
-  printf("&arr7 = %p\n", arr7);
-  printf("&arr8 = %p\n", arr8);
-  printf("&arr9 = %p\n", arr9);
+  // printf("&arr1 = %p\n", arr1);
+  // printf("&arr2 = %p\n", arr2);
+  // printf("&arr3 = %p\n", arr3);
+  // printf("&arr4 = %p\n", arr4);
+  // printf("&arr5 = %p\n", arr5);
+  // printf("&arr6 = %p\n", arr6);
+  // printf("&arr7 = %p\n", arr7);
+  // printf("&arr8 = %p\n", arr8);
+  // printf("&arr9 = %p\n", arr9);
   return f;
 }
 
