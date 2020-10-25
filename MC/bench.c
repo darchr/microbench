@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "common.h"
 
-#define ASIZE 8192
+#define ASIZE 2048
 #define STEP  128
 
 float arr[ASIZE];

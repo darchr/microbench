@@ -2,9 +2,9 @@
 #include "randArr.h"
 #include "common.h"
 
-#define ASIZE 2048
-#define STEP   16384
-#define ITERS    32
+#define ASIZE 0
+#define STEP  16384
+#define ITERS 32
 
 __attribute__ ((noinline))
 int loop(int zero) {
@@ -57,8 +57,8 @@ int loop(int zero) {
 
 int main(int argc, char* argv[]) {
    argc&=10000;
-   ROI_BEGIN(); 
-   int t=loop(argc); 
+   ROI_BEGIN();
+   int t=loop(argc);
    ROI_END();
    volatile int a = t;
 }
